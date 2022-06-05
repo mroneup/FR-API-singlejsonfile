@@ -15,6 +15,43 @@ After installing the requirements run the API with
 uvicorn main:app --reload
 ```
 
-## Modding:
+## How to fetch from the API:
 
-You're allowed to mod the api and use it in your projects.
+### Javascript (node.js):
+
+Firstly install the request module.
+
+
+```
+npm install request
+```
+
+once that is done do the following
+
+```javascript
+var request = require('request');
+
+var options = {
+  'method': 'GET',
+  'url': 'https://api.femboyroulette.ga', //or whatever ip uvicorn spits if you're hosting the api locally
+  'headers': {
+  }
+};
+
+request(options, function (error, response) {
+                    if (error) throw new Error(error);
+                    var parsed = JSON.parse(response.body); //turns the api into a parsed json file
+                    const { image, artist, link} = (parsed) //Requires that parsed json file
+
+console.log("Image: " + image + "\n" + "Artist: " + artist + "\n" + "Link: " + link)
+
+});
+```
+
+after this run the script with
+```
+node (file name).js
+```
+
+## Modding:
+You're allowed to mod the api as you see fit aslong as it's nature is not malicious.
