@@ -11,7 +11,7 @@ app = FastAPI()
 @app.get("/")
 def read_root(response: Response):
     response.headers["Access-Control-Allow-Origin"] = "*"
-    number = random.randint(1,30)
+    number = random.randint(1,29)
     j = open('./json/' + str(number) + '.json')
     img = json.load(j)
     return img
