@@ -1,5 +1,5 @@
 # FemboyRoulette-API v1.01
-The API for femboyroulette.ga.
+The API for femboyroulette.xyz.
 
 ## Usage
 
