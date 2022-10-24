@@ -1,8 +1,9 @@
+'''Main File, houses logic for the actual API.'''
 ## Module imports ##
-from typing import Union
-from fastapi import FastAPI, Response
 import json
 import random
+#I'd recommend using flask, but whatever floats your boat.
+from fastapi import FastAPI, Response
 #####################
 
 ## Main Code ##
@@ -10,10 +11,9 @@ app = FastAPI()
 
 @app.get("/")
 def read_root(response: Response):
+    '''Returns random image of femboy from the data.json file.'''
     response.headers["Access-Control-Allow-Origin"] = "*"
     number = random.randint(1,29)
-    with open('./json/' + str(number) + '.json', encoding='utf-8') as j:
+    with open('./json/' + "data" + '.json', encoding='utf-8') as j:
         img = json.load(j)
-    return img
-
-print("Server is running...")
+    return img[number]
